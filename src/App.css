@@ -21,6 +21,7 @@ main{
     aspect-ratio: 1/1;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -42,8 +43,30 @@ main{
 }
 .dice-container{
     display: grid;
-    /* grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto auto; */
     grid-template: auto auto / repeat(5, 1fr);
     gap: 20px;
+}
+.roll-btn{
+    margin-top: 40px;
+    padding: 10px 40px;
+    background-color: #5035FF;
+    color: white;
+    font-size: 20px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    border: 2px solid transparent;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.roll-btn:hover{
+     box-shadow: none;
+     border-color: #472FE1;
+}
+.roll-btn:focus{
+    outline:none;
+}
+.roll-btn:active{
+    transform: translateY(4px);
 }
