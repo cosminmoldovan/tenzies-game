@@ -5,14 +5,19 @@ import Die from './Die';
 
 function App() {
   const [dice, setDice] = useState(allNewDice());
+  
+  function generateDie(){
+    return {
+      value: Math.ceil(Math.random()*6), 
+      isHeld: false,
+      id: nanoid()
+    };
+  }
+
   function allNewDice(){
     let newDice = [];
     for(let i=0; i<10; i++){
-      newDice.push({
-        value: Math.ceil(Math.random()*6), 
-        isHeld: false,
-        id: nanoid()
-      })
+      newDice.push(generateDie())
     }
     return newDice;
   }
@@ -24,10 +29,16 @@ function App() {
       die
     }))
   }
-  const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={()=>holdDice(die.id)}/>);
   function rollDice(){
-    setDice(allNewDice())
+    setDice(oldDice => oldDice.map(die => {
+      return die.isHeld ?
+      die :
+      generateDie();
+      }
+    ))
   }
+  const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={()=>holdDice(die.id)}/>);
+  
   return (
    <main>
      <div className='dice-container'>
