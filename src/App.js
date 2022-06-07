@@ -31,12 +31,18 @@ function App() {
     }))
   }
   function rollDice(){
-    setDice(oldDice => oldDice.map(die => {
-      return die.isHeld ?
-      die :
-      generateDie();
-      }
-    ))
+    if(!tenzies){
+      setDice(oldDice => oldDice.map(die => {
+        return die.isHeld ?
+        die :
+        generateDie();
+        }
+      ))
+    }else{
+      setTenzies(false);
+      setDice(allNewDice());
+    }
+    
   }
   useEffect(()=>{
     const allHeld = dice.every(die => die.isHeld);
