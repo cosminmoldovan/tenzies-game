@@ -38,7 +38,12 @@ function App() {
     ))
   }
   useEffect(()=>{
-    console.log("Dice state changed")
+    const allHeld = dice.every(die => die.isHeld);
+    const allEqual = dice.every(die => die.value === dice[0].value);
+    if(allHeld && allEqual){
+      setTenzies(true);
+      console.log("You won!");
+    }
   },[dice])
   const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={()=>holdDice(die.id)}/>);
 
