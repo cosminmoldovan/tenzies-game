@@ -1,4 +1,4 @@
-# Tenzies Game (Scrimba React Course Project 6)
+# Tenzies Game <sub><sup>(Scrimba React Course Project 6)</sup></sub>
 
 Requirements:
 
