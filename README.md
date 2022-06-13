@@ -9,4 +9,4 @@ Requirements:
 - Styled & polished
 <br>
 <br>
-<p align="center"><img src="src/project-demo.gif"/></p>
+<p align="center"><img src="src/project-demo.gif" width="100%"/></p>
